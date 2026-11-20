@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEYGUARD | Security Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>🛡 KEYGUARD</h2>
+
+        <p class="menu-title">MAIN MENU</p>
+
+        <a href="#">Dashboard</a>
+        <a href="#">Activity Simulator</a>
+        <a href="#">Threat Detection</a>
+        <a href="#">Analytics</a>
+        <a href="#">Security Reports</a>
+
+        <div class="sidebar-footer">
+            CYBERSECURITY LAB<br>
+            VERSION 1.0
+        </div>
+    </div>
+
+    <main class="main-content">
+
+        <header>
+            <div>
+                <h1>Security Dashboard</h1>
+                <p>Keyboard Activity Monitoring & Threat Detection</p>
+            </div>
+
+            <div class="status">
+                ● SYSTEM ONLINE
+            </div>
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+                <h3>System Status</h3>
+                <h2>PROTECTED</h2>
+                <p>Simulation environment active</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Events</h3>
+                <h2 id="events">0</h2>
+                <p>Keyboard test events</p>
+            </div>
+
+            <div class="card">
+                <h3>Risk Score</h3>
+                <h2 id="risk">0%</h2>
+                <p id="risk-level">LOW RISK</p>
+            </div>
+
+            <div class="card">
+                <h3>Backend Status</h3>
+                <h2 id="backend">Checking...</h2>
+                <p>Flask API connection</p>
+            </div>
+
+        </section>
+
+        <section class="panel">
+
+            <h2>Keyboard Activity Simulator</h2>
+
+            <p>
+                Type sample text in the designated area
+                to generate test keyboard events.
+            </p>
+
+            <textarea id="testArea"
+                placeholder="Start typing your sample text here..."
+            ></textarea>
+
+            <br>
+
+            <button onclick="startMonitoring()">
+                START SIMULATION
+            </button>
+
+            <button class="stop"
+                onclick="stopMonitoring()">
+                STOP SIMULATION
+            </button>
+
+            <button class="clear"
+                onclick="clearLogs()">
+                CLEAR LOGS
+            </button>
+
+        </section>
+
+        <section class="panel">
+
+            <h2>Activity Logs</h2>
+
+            <div id="logs">
+                No activity recorded yet.
+            </div>
+
+        </section>
+        <section class="charts-container">
+
+    <div class="chart-panel">
+        <h2>Event Distribution</h2>
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <div class="chart-panel">
+        <h2>Activity Comparison</h2>
+        <canvas id="barChart"></canvas>
+    </div>
+
+</section>
+
+<section class="panel threat-panel">
+
+    <h2>Threat Detection Engine</h2>
+
+    <p>
+        Select simulated security scenarios to perform
+        a risk assessment.
+    </p>
+
+    <div class="threat-options">
+
+        <label>
+            <input type="checkbox" id="background">
+            Background Monitoring Attempt
+        </label>
+
+        <label>
+            <input type="checkbox" id="permission">
+            Suspicious Permission Request
+        </label>
+
+        <label>
+            <input type="checkbox" id="startup">
+            Unexpected Startup Behaviour
+        </label>
+
+    </div>
+
+    <button onclick="runThreatAssessment()">
+        RUN SECURITY ASSESSMENT
+    </button>
+
+    <div id="assessment-result">
+
+        <h3>Assessment Results</h3>
+
+        <p id="risk-result">
+            Awaiting security assessment...
+        </p>
+
+        <p id="indicator-result">
+            No indicators detected.
+        </p>
+
+    </div>
+
+</section>
+<!-- ASSESSMENT HISTORY -->
+
+<section class="panel history-panel">
+
+    <h2>Assessment History</h2>
+
+    <p>Previously recorded security assessments.</p>
+
+    <button onclick="loadAssessmentHistory()">
+        REFRESH HISTORY
+    </button>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date & Time</th>
+                    <th>Risk Score</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+
+            <tbody id="assessmentHistory">
+
+                <tr>
+                    <td colspan="4">Loading assessment history...</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+        <footer>
+            KEYGUARD CYBERSECURITY LAB |
+            EDUCATIONAL SIMULATION ONLY
+        </footer>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
